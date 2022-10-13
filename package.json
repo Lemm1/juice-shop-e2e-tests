@@ -1,0 +1,19 @@
+{
+  "name": "juice-shop-e2e-tests",
+  "version": "1.0.0",
+  "description": "Small test project that test juice-shop ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemm1/juice-shop-e2e-tests.git"
+  },
+  "author": "Lemm <mrlolvovgres@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lemm1/juice-shop-e2e-tests/issues"
+  },
+  "homepage": "https://github.com/Lemm1/juice-shop-e2e-tests#readme"
+}
