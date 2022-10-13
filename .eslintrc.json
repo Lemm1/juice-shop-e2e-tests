@@ -1,0 +1,9 @@
+{
+  "extends": ["airbnb-base-typescript-prettier", "plugin:cypress/recommended"],
+  "env": {
+    "es2019": true,
+    "mocha": true,
+    "cypress/globals": true
+  },
+  "plugins": ["cypress"]
+}

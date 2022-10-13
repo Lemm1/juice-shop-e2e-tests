@@ -2,9 +2,13 @@
   "name": "juice-shop-e2e-tests",
   "version": "1.0.0",
   "description": "Small test project that test juice-shop ",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --check --write ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/Lemm1/juice-shop-e2e-tests/issues"
   },
-  "homepage": "https://github.com/Lemm1/juice-shop-e2e-tests#readme"
+  "homepage": "https://github.com/Lemm1/juice-shop-e2e-tests#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base-typescript-prettier": "^4.1.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  }
 }
