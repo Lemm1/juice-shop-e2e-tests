@@ -1,5 +1,5 @@
 import { Given, When, Before } from "@badeball/cypress-cucumber-preprocessor";
-import { LoginPage } from "./login.page";
+import { LoginPage } from "../../pages/login.page";
 import { createDefaultUser } from "../../support/api/users";
 
 const loginPage = new LoginPage();

@@ -1,5 +1,5 @@
 import { Then } from "@badeball/cypress-cucumber-preprocessor";
-import { LoginPage } from "../../e2e/login/login.page";
+import { LoginPage } from "../../pages/login.page";
 
 Then("User should see the login page", () => {
   new LoginPage().shouldBeOpened();

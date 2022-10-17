@@ -1,4 +1,4 @@
-import BasePage from "../../support/base.page";
+import BasePage from "./base.page";
 
 const locators = {
   emailInput: "#email",
