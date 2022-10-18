@@ -3,8 +3,6 @@ import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild";
 
-// const cucumber = require("cypress-cucumber-preprocessor").default;
-
 export default defineConfig({
   e2e: {
     async setupNodeEvents(
