@@ -1,6 +1,7 @@
 import BasePage from "./base.page";
 
 const locators = {
+  title: "h1",
   emailInput: "#emailControl",
   passwordInput: "#passwordControl",
   repeatPasswordInput: "#repeatPasswordControl",
@@ -8,6 +9,8 @@ const locators = {
   securityQuestionDropdown: "#mat-select-0-panel",
   securityQuestionAnswerInput: "#securityAnswerControl",
   registerButton: "#registerButton",
+  option: "mat-option",
+  error: ".mat-error",
 };
 
 export class RegistrationPage extends BasePage {
@@ -30,7 +33,7 @@ export class RegistrationPage extends BasePage {
   public selectSecurityQuestion(securityQuestion: string) {
     this.getSecurityQuestionSelect().click();
     this.getSecurityQuestionDropdown()
-      .find("mat-option")
+      .find(locators.option)
       .filter(`:contains(${securityQuestion})`)
       .click();
   }
@@ -48,6 +51,21 @@ export class RegistrationPage extends BasePage {
       "have.text",
       "Registration completed successfully. You can now log in."
     );
+  }
+
+  public emailValidationErrorShouldExist() {
+    this.getErrorMessage().should("have.text", "Email address is not valid.");
+  }
+
+  public passwordValidationErrorShouldExist() {
+    this.getErrorMessage().should(
+      "have.text",
+      "Password must be 5-40 characters long. "
+    );
+  }
+
+  public passwordsDontMatchErrorShouldExist() {
+    this.getErrorMessage().should("have.text", " Passwords do not match ");
   }
 
   public open() {
@@ -82,6 +100,16 @@ export class RegistrationPage extends BasePage {
 
   private getRegisterButton() {
     return cy.get(locators.registerButton);
+  }
+
+  private getTitle() {
+    return cy.get(locators.title);
+  }
+
+  private getErrorMessage() {
+    // Click outside form to force all input validation
+    this.getTitle().click();
+    return cy.get(locators.error);
   }
 }
 

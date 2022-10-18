@@ -1,5 +1,5 @@
 # juice-shop-e2e-tests
-Small test project that tests juice-shop.
+Small test project that tests login and registration functionality of juice-shop.
 
 ## Prerequirments
 1. Node.JS 14.20.1;

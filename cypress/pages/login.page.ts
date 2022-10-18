@@ -4,6 +4,7 @@ const locators = {
   emailInput: "#email",
   passwordInput: "#password",
   loginButton: "#loginButton",
+  errorMessage: ".error",
 };
 
 export class LoginPage extends BasePage {
@@ -23,6 +24,10 @@ export class LoginPage extends BasePage {
     return cy.get(locators.loginButton);
   }
 
+  private getErrorMessage() {
+    return cy.get(locators.errorMessage);
+  }
+
   public typeEmail(email: string) {
     this.getEmailInput().type(email);
   }
@@ -33,6 +38,18 @@ export class LoginPage extends BasePage {
 
   public clickLogin() {
     this.getLoginButton().click();
+  }
+
+  public invalidCredentialsErrorMessageShouldExist() {
+    this.getErrorMessage().should("have.text", "Invalid email or password.");
+  }
+
+  public loginShouldBeDisabled() {
+    this.getLoginButton().should("be.disabled");
+  }
+
+  public clearEmail() {
+    this.getEmailInput().clear();
   }
 
   public open() {

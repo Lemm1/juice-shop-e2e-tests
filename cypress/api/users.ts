@@ -1,19 +1,29 @@
-export function createDefaultUser(): void {
-  cy.fixture("users").then((userFixture) => {
+import { faker } from "@faker-js/faker";
+import { ISecurityQuestion } from "../interfaces/security.questions.interface";
+import { IUser } from "../interfaces/user.interface";
+
+export function creatRandomUser(): IUser {
+  const password = faker.internet.password();
+  const email = faker.internet.email();
+  cy.fixture("securityQuestions").then((securityQuestionsFixture) => {
     const date = new Date().toISOString();
+    const securityQuestion = faker.helpers.arrayElement<ISecurityQuestion>(
+      securityQuestionsFixture
+    );
     const payload = {
-      email: userFixture.defaultUser.email,
-      password: userFixture.defaultUser.password,
-      passwordRepeat: userFixture.defaultUser.password,
+      email,
+      password,
+      passwordRepeat: password,
       sequirityQuestion: {
         createdAt: date,
-        id: userFixture.defaultUser.securityQuestion.id,
-        question: userFixture.defaultUser.securityQuestion.question,
+        id: securityQuestion.id,
+        question: securityQuestion.question,
         updatedAt: date,
       },
     };
     cy.request("POST", "/api/Users", payload);
   });
+  return { email, password };
 }
 
-export default createDefaultUser;
+export default creatRandomUser;
