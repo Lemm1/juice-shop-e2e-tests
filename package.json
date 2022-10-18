@@ -1,0 +1,47 @@
+{
+  "name": "juice-shop-e2e-tests",
+  "version": "1.0.0",
+  "description": "Small test project that tests login and registration functionality of juice-shop.",
+  "main": "",
+  "scripts": {
+    "predocker:run": "docker stop juice-shop &",
+    "docker:run": "docker run -d --name=\"juice-shop\" --rm -p 3000:3000 bkimminich/juice-shop",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --check --write .",
+    "cy:open": "cypress open",
+    "precy:run": "npm run docker:run",
+    "cy:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemm1/juice-shop-e2e-tests.git"
+  },
+  "author": "Lemm <mrlolvovgres@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lemm1/juice-shop-e2e-tests/issues"
+  },
+  "homepage": "https://github.com/Lemm1/juice-shop-e2e-tests#readme",
+  "devDependencies": {
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base-typescript-prettier": "^4.1.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^13.0.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^10.10.0",
+    "cypress-dark": "^1.8.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}

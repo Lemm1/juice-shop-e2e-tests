@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb-base-typescript-prettier", "plugin:cypress/recommended"],
+  "env": {
+    "es2015": false,
+    "es2019": true,
+    "mocha": true,
+    "cypress/globals": true
+  },
+  "plugins": ["cypress"],
+  "rules": {
+    "class-methods-use-this": 0,
+    "no-useless-constructor": "off"
+  }
+}
